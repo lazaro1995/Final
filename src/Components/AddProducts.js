@@ -8,7 +8,7 @@ export const AddProducts = () => {
     const [productImg, setProductImg] = useState(null);
     const [error, setError] = useState('');
 
-    const types = ['image/png', 'image/jpeg']; // image types
+    const types = ['image/png', 'image/jpeg','image/webp']; // image types
 
     const productImgHandler = (e) => {
         let selectedFile = e.target.files[0];
