@@ -77,21 +77,22 @@ export const Cashout = (props) => {
                     <br />
                     <label htmlFor="Cell No">Cell No</label>
                     <input type="number" className='form-control' required
-                        onChange={(e) => setCell(e.target.value)} value={cell} placeholder='eg 03123456789' />
+                        onChange={(e) => setCell(e.target.value)} value={cell} placeholder='Eg 786 889 0000 ' />
                     <br />
                     <label htmlFor="Delivery Address">Delivery Address</label>
                     <input type="text" className='form-control' required
                         onChange={(e) => setAddress(e.target.value)} value={address} />
                     <br />
-                    <label htmlFor="Price To Pay">Price To Pay</label>
+                    <label htmlFor="Price To Pay">Total to Pay</label>
                     <input type="number" className='form-control' required
-                        value={totalPrice} disabled />
+                        value={totalPrice.toFixed(2)} disabled />
                     <br />
                     <label htmlFor="Total No of Products">Total No of Products</label>
                     <input type="number" className='form-control' required
                         value={totalQty} disabled />
                     <br />
                     <button type="submit" className='btn btn-success btn-md mybtn'>SUBMIT</button>
+                    <a className="btn btn-secondary mx-3" href="/"> BACK </a>
                 </form>
                 {error && <span className='error-msg'>{error}</span>}
             </div>

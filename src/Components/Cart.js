@@ -44,7 +44,7 @@ export const Cart = ({ user }) => {
 
                             <div className='cart-name'>{cart.ProductName}</div>
 
-                            <div className='cart-price-orignal'>Rs {cart.ProductPrice}.00</div>
+                            <div className='cart-price-orignal'>USD ${cart.ProductPrice.toFixed(2)}</div>
 
                             <div className='inc' onClick={() => dispatch({ type: 'INC', id: cart.ProductID, cart })}>
                                 <Icon icon={ic_add} size={24} />
@@ -57,7 +57,7 @@ export const Cart = ({ user }) => {
                             </div>
 
                             <div className='cart-price'>
-                                Rs {cart.TotalProductPrice}.00
+                                USD ${cart.TotalProductPrice.toFixed(2)}
                             </div>
 
                             <button className='delete-btn' onClick={() => dispatch({ type: 'DELETE', id: cart.ProductID, cart })}>
@@ -72,7 +72,7 @@ export const Cart = ({ user }) => {
                         </div>
                         <div className='cart-summary-price'>
                             <span>Total Price</span>
-                            <span>{totalPrice}</span>
+                            <span>${totalPrice.toFixed(2)}</span>
                         </div>
                         <div className='cart-summary-price'>
                             <span>Total Qty</span>
@@ -81,6 +81,11 @@ export const Cart = ({ user }) => {
                         <Link to='cashout' className='cashout-link'>
                             <button className='btn btn-success btn-md' style={{ marginTop: 5 + 'px' }}>
                                 Cash on delivery
+                        </button>
+                        </Link>
+                        <Link to='/' className='cashout-link'>
+                            <button className='btn btn-secondary btn-md' style={{ marginTop: 5 + 'px' }}>
+                               BACK
                         </button>
                         </Link>
                     </div>}

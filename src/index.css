@@ -88,7 +88,7 @@ body {
     cursor: pointer;
     outline: none;
     border: hidden;
-    background-color: #2eca8b;
+    background-color: #88918d;
     margin-left: 10px;
 }
 
@@ -142,7 +142,7 @@ h1 {
 .products-container .product-card .product-name {
     display: block;
     width: 100%;
-    color: #f57224;
+    color: #309da4;
     margin-top: 5px;
 }
 
@@ -153,7 +153,7 @@ h1 {
 }
 
 .products-container .product-card .addcart-btn {
-    background-color: #f57224;
+    background-color: #309da4;
     color: #fff;
     border: hidden;
     cursor: pointer;
@@ -229,7 +229,7 @@ h1 {
 .cart-container .cart-card .cart-price-orignal {
     width: 150px;
     margin-left: 20px;
-    color: #f57224;
+    color: #309da4;
 }
 
 @media(max-width: 768px) {
@@ -276,7 +276,7 @@ h1 {
 }
 
 .cart-summary .cart-summary-heading {
-    border-bottom: 1px solid #f57224;
+    border-bottom: 1px solid #309da4;
 }
 
 .cart-summary .cart-summary-price {
