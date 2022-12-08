@@ -20,10 +20,15 @@ export const Login = (props) => {
 
     return (
         <div className='container'>
+            <div className='row my-5'>
+            <div class="col-sm-3"></div> 
             <br />
+            <div class="col-sm-6">
             <h2>Login</h2>
             <br />
             <form autoComplete="off" className='form-group' onSubmit={login}>
+             
+            
                 <label htmlFor="email">Email</label>
                 <input type="email" className='form-control' required
                     onChange={(e) => setEmail(e.target.value)} value={email} />
@@ -33,12 +38,18 @@ export const Login = (props) => {
                     onChange={(e) => setPassword(e.target.value)} value={password} />
                 <br />
                 <button type="submit" className='btn btn-success btn-md mybtn'>LOGIN</button>
+                
+                
             </form>
+            
             {error && <span className='error-msg'>{error}</span>}
             <br/>
             <span>Don't have an account? Register
                 <Link to="signup"> Here</Link>
             </span>
+            </div>
+            <div class="col-sm-3"></div>
+            </div> 
         </div>
     )
 }
