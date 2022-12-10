@@ -26,7 +26,7 @@ export const Signup = (props) => {
                 setEmail('');
                 setPassword('');
                 setError('');
-                props.history.push('/login');
+                props.history.push('/');
             }).catch(err => setError(err.message));
         }).catch(err => setError(err.message));
     }
