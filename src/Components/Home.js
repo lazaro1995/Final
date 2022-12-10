@@ -3,6 +3,7 @@ import { Navbar } from './Navbar';
 import { Products } from './Products'
 import { useHistory } from 'react-router-dom'
 import { auth } from '../Config/Config'
+import { Footer } from './Footer';
 
 export const Home = ({ user }) => {
 
@@ -21,6 +22,7 @@ export const Home = ({ user }) => {
         <div className='wrapper'>
             <Navbar user={user} />
             <Products />
+            <Footer/>
         </div>
     )
 }

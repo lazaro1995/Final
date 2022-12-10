@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { auth, db } from '../Config/Config'
 import { Link } from 'react-router-dom'
+import logostore from '../images/logostore.png'
+import { Footer } from './Footer';
+
 
 export const Signup = (props) => {
 
@@ -29,8 +32,17 @@ export const Signup = (props) => {
     }
 
     return (
+        <>
         <div className='container'>
+            <div className='navbox'>
+                <div className='leftside'>
+                    <img src={logostore} alt="" />
+                </div>
+            </div>
+            <div className='row my-5'>
+            <div class="col-sm-3"></div>
             <br />
+            <div class="col-sm-6">
             <h2>Sign up</h2>
             <br />
             <form autoComplete="off" className='form-group' onSubmit={signup}>
@@ -53,6 +65,13 @@ export const Signup = (props) => {
             <span>Already have an account? Login
                 <Link to="login"> Here</Link>
             </span>
+            </div>
+            <div class="col-sm-3"></div>
+            </div>
         </div>
+         <div className='pie'>
+         <Footer/>
+     </div>
+     </>
     )
 }

@@ -84,7 +84,7 @@ export const Cart = ({ user }) => {
                         </button>
                         </Link>
                         <Link to='/' className='cashout-link'>
-                            <button className='btn btn-secondary btn-md' style={{ marginTop: 5 + 'px' }}>
+                            <button className='btn  btn-md' style={{ marginTop: 5 + 'px' }}>
                                BACK
                         </button>
                         </Link>

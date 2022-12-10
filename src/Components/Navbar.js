@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import logo from '../images/ecommerce.svg'
+import logostore from '../images/logostore.png'
 import { Link } from 'react-router-dom'
 import { auth } from '../Config/Config'
 import { Icon } from 'react-icons-kit'
@@ -22,7 +23,7 @@ export const Navbar = ({ user }) => {
     return (
         <div className='navbox'>
             <div className='leftside'>
-                <img src={logo} alt="" />
+                <img src={logostore} alt="" />
             </div>
             {!user && <div className='rightside'>
                 <span><Link to="signup" className='navlink'>SIGN UP</Link></span>

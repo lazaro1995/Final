@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { auth } from '../Config/Config'
 import { Link } from 'react-router-dom'
+import logostore from '../images/logostore.png'
+import { Footer } from './Footer';
+
+
 
 export const Login = (props) => {
 
@@ -19,7 +23,14 @@ export const Login = (props) => {
     }
 
     return (
+        <>
         <div className='container'>
+         <div className='navbox'>
+            <div className='leftside'>
+                <img src={logostore} alt="" />
+            </div>
+         </div>
+
             <div className='row my-5'>
             <div class="col-sm-3"></div> 
             <br />
@@ -49,7 +60,13 @@ export const Login = (props) => {
             </span>
             </div>
             <div class="col-sm-3"></div>
-            </div> 
+            </div>
         </div>
+       
+        <div className='pie'>
+            <Footer/>
+        </div>
+        </>
+
     )
 }
