@@ -15,6 +15,7 @@ export const Cashout = (props) => {
     const [email, setEmail] = useState('');
     const [cell, setCell] = useState('');
     const [address, setAddress] = useState('');
+    const [products, setProducts] = useState([]);
     const [error, setError] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
 
@@ -38,13 +39,19 @@ export const Cashout = (props) => {
             if (user) {
                 const date = new Date();
                 const time = date.getTime();
-                db.collection('Buyer-info ' + user.uid).doc('_' + time).set({
+                for(let i= 0; i< shoppingCart.length;i++ ){
+                    products[i] = {product: shoppingCart[i].ProductName ,qty: shoppingCart[i].qty}
+                    console.log(shoppingCart[i])
+                }
+                db.collection('Buyer-info').add({
                     BuyerName: name,
                     BuyerEmail: email,
                     BuyerCell: cell,
                     BuyerAddress: address,
                     BuyerPayment: totalPrice,
-                    BuyerQuantity: totalQty
+                    BuyerQuantity: totalQty,
+                    Products : products,
+                    status: 'Pending'
                 }).then(() => {
                     setCell('');
                     setAddress('');

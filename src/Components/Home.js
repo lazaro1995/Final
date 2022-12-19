@@ -4,25 +4,30 @@ import { Products } from './Products'
 import { useHistory } from 'react-router-dom'
 import { auth } from '../Config/Config'
 import { Footer } from './Footer';
+import { Order } from './ListOrder';
 
-export const Home = ({ user }) => {
+export const Home = ({ user, rol }) => {
+
 
     const history = useHistory();
+    
+    if(rol==='admin'){
+        return(
+            <div>
 
-    useEffect(() => {
-        // forcing user to signup
-        auth.onAuthStateChanged(user => {
-            if (!user) {
-                history.push('/login');
-            }
-        })
-    })
-
-    return (
-        <div className='wrapper'>
             <Navbar user={user} />
-            <Products />
-            <Footer/>
-        </div>
-    )
+            <Order/>
+            </div>
+        )
+    }
+    else{
+        return (
+            <div className='wrapper'>
+                <Navbar user={user} />
+                <Products />
+                <Footer/>
+            </div>
+        )
+    }
+
 }

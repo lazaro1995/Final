@@ -10,11 +10,13 @@ import { CartContextProvider } from './Global/CartContext'
 import { Cart } from './Components/Cart'
 import { AddProducts } from './Components/AddProducts'
 import { Cashout } from './Components/Cashout'
+import { ListOrder, Order } from './Components/ListOrder'
 
 export class App extends Component {
 
     state = {
         user: null,
+        rol: null
     }
 
     componentDidMount() {
@@ -24,7 +26,8 @@ export class App extends Component {
             if (user) {
                 db.collection('SignedUpUsersData').doc(user.uid).get().then(snapshot => {
                     this.setState({
-                        user: snapshot.data().Name
+                        user: snapshot.data().Name,
+                        rol: snapshot.data().rol
                     })
                 })
             }
@@ -44,7 +47,7 @@ export class App extends Component {
                     <BrowserRouter>
                         <Switch>
                             {/* home */}
-                            <Route exact path='/' component={() => <Home user={this.state.user} />} />
+                            <Route exact path='/' component={() => <Home user={this.state.user} rol={this.state.rol} />} />
                             {/* signup */}
                             <Route path="/signup" component={Signup} />
                             {/* login */}
@@ -52,9 +55,11 @@ export class App extends Component {
                             {/* cart products */}
                             <Route path="/cartproducts" component={() => <Cart user={this.state.user} />} />
                             {/* add products */}
-                            <Route path="/addproducts" component={AddProducts} />
+                            <Route path="/addproducts" component={() => <AddProducts rol={this.state.rol}/> } />
                             {/* cashout */}
                             <Route path='/cashout' component={() => <Cashout user={this.state.user} />} />
+                            {/* listorder */}
+                            <Route path='/listorder' component={() => <Order user={this.state.rol} />} />
                             <Route component={NotFound} />
                         </Switch>
                     </BrowserRouter>
