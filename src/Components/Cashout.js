@@ -41,7 +41,7 @@ export const Cashout = (props) => {
                 const time = date.getTime();
                 for(let i= 0; i< shoppingCart.length;i++ ){
                     products[i] = {product: shoppingCart[i].ProductName ,qty: shoppingCart[i].qty}
-                    console.log(shoppingCart[i])
+                    console.log(dispatch)
                 }
                 db.collection('Buyer-info').add({
                     BuyerName: name,
@@ -55,6 +55,7 @@ export const Cashout = (props) => {
                 }).then(() => {
                     setCell('');
                     setAddress('');
+                    setProducts([]);
                     dispatch({ type: 'EMPTY' })
                     setSuccessMsg('Your order has been placed successfully. Thanks for visiting us. You will be redirected to home page after 5 seconds');
                     setTimeout(() => {

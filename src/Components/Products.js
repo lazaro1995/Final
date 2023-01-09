@@ -18,6 +18,7 @@ export const Products = () => {
                         <div className='product-img'>
                             <img src={product.ProductImg} alt="not found" />
                         </div>
+                        {console.log(products)}
                         <div className='product-name'>
                             {product.ProductName}
                         </div>

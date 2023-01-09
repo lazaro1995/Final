@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { auth } from '../Config/Config'
 import { Footer } from './Footer';
 import { Order } from './ListOrder';
+import { Link } from 'react-router-dom'
 
 export const Home = ({ user, rol }) => {
 
@@ -24,6 +25,15 @@ export const Home = ({ user, rol }) => {
         return (
             <div className='wrapper'>
                 <Navbar user={user} />
+                <div className='row'>
+                    <div className='col-10'>
+
+                    </div>
+                    <div className='col-2'>
+                    <span><Link to="yourorder" className='navlink'>Your Orders</Link></span>
+                    </div>
+                </div>
+               
                 <Products />
                 <Footer/>
             </div>

@@ -11,12 +11,14 @@ import { Cart } from './Components/Cart'
 import { AddProducts } from './Components/AddProducts'
 import { Cashout } from './Components/Cashout'
 import { ListOrder, Order } from './Components/ListOrder'
+import { YourOrder } from './Components/YourOrder'
 
 export class App extends Component {
 
     state = {
         user: null,
-        rol: null
+        rol: null,
+        email: null
     }
 
     componentDidMount() {
@@ -27,13 +29,16 @@ export class App extends Component {
                 db.collection('SignedUpUsersData').doc(user.uid).get().then(snapshot => {
                     this.setState({
                         user: snapshot.data().Name,
-                        rol: snapshot.data().rol
+                        rol: snapshot.data().rol,
+                        email: snapshot.data().Email
                     })
                 })
             }
             else {
                 this.setState({
-                    user: null
+                    user: null,
+                    emial: null,
+                    rol: null
                 })
             }
         })
@@ -58,6 +63,8 @@ export class App extends Component {
                             <Route path="/addproducts" component={() => <AddProducts rol={this.state.rol}/> } />
                             {/* cashout */}
                             <Route path='/cashout' component={() => <Cashout user={this.state.user} />} />
+                            {/* listorder */}
+                            <Route path='/yourorder' component={() => <YourOrder email={this.state.email} user={this.state.user}/>} />
                             {/* listorder */}
                             <Route path='/listorder' component={() => <Order user={this.state.rol} />} />
                             <Route component={NotFound} />
